@@ -9,13 +9,13 @@ if __name__ == "__main__":
         sys.exit(1)
 
     a = int(argv[1])
-    op = argv[2]
+    operator = argv[2]
     b = int(argv[3])
 
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-    if op not in list(ops.keys()):
+    operators = {"+": add, "-": sub, "*": mul, "/": div}
+    if operator not in list(operators.keys()):
         print("Unknown operator. Available operators: +, -, *, /")
         sys.exit(1)
 
-    result = ops[op](a, b)
-    print("{} {} {} = {}".format(a, op, b, result))
+    result = operators[operator](a, b)
+    print("{} {} {} = {}".format(a, operator, b, result))
