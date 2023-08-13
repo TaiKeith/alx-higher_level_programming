@@ -8,6 +8,6 @@ def divisible_by_2(my_list=[]):
 
     for x in len(new_list) - 1:
         if x % 2 == 0:
-            return True
-        return False
+            new_list.replace(True)
+        new_list.replace(False)
     return new_list
