@@ -10,3 +10,4 @@ def divisible_by_2(my_list=[]):
         if x % 2 == 0:
             return True
         return False
+    return new_list
