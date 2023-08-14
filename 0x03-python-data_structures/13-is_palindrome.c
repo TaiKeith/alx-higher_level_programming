@@ -1,7 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
  * is_palindrome - A function that checks if a linked list is a palindrome
@@ -11,36 +10,56 @@
  */
 int is_palindrome(listint_t **head)
 {
+	listint_t *slow = *head, *fast = *head;
+	listint_t *prev = NULL, *temp = NULL, *next_node = NULL;
+
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-
-	listint_t *slow = *head;
-	listint_t *fast = *head;
-	listint_t *prev = NULL;
-	listint_t *next = NULL;
 
 	while (fast != NULL && fast->next != NULL)
 	{
 		fast = fast->next->next;
-
-		next = slow->next;
-		slow->next = prev;
-		prev = slow;
-		slow = next;
+		temp = slow;
+		slow = slow->next;
 	}
 
 	if (fast != NULL)
 	{
+		temp = slow;
 		slow = slow->next;
 	}
 
-	while (prev != NULL && slow != NULL)
+	while (slow != NULL)
 	{
-		if (prev->n != slow->n)
-			return (0);
+		next_node = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = next_node;
+	}
 
+	while (prev != NULL)
+	{
+		if ((*head)->n != prev->n)
+		{
+			while (temp != NULL)
+			{
+				next_node = temp->next;
+				temp->next = prev;
+				prev = temp;
+				temp = next_node;
+			}
+			return (0);
+		}
+		*head = (*head)->next;
 		prev = prev->next;
-		slow = slow->next;
+	}
+
+	while (temp != NULL)
+	{
+		next_node = temp->next;
+		temp->next = prev;
+		prev = temp;
+		temp = next->node;
 	}
 
 	return (1);
