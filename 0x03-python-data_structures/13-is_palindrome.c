@@ -10,57 +10,37 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head, *fast = *head;
-	listint_t *prev = NULL, *temp = NULL, *next_node = NULL;
-
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 
+	listint_t *slow = *head;
+	listint_t *fast = *head;
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
+
+	/*Move slow to the middle, and reverse the second half*/
 	while (fast != NULL && fast->next != NULL)
 	{
 		fast = fast->next->next;
-		temp = slow;
-		slow = slow->next;
+
+		next = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = next;
 	}
 
 	if (fast != NULL)
 	{
-		temp = slow;
 		slow = slow->next;
 	}
 
-	while (slow != NULL)
+	while (prev != NULL && slow != NULL)
 	{
-		next_node = slow->next;
-		slow->next = prev;
-		prev = slow;
-		slow = next_node;
-	}
-
-	while (prev != NULL)
-	{
-		if ((*head)->n != prev->n)
-		{
-			while (temp != NULL)
-			{
-				next_node = temp->next;
-				temp->next = prev;
-				prev = temp;
-				temp = next_node;
-			}
+		if (prev->n != slow->n)
 			return (0);
-		}
-		*head = (*head)->next;
+
 		prev = prev->next;
+		slow = slow->next;
 	}
-
-	while (temp != NULL)
-	{
-		next_node = temp->next;
-		temp->next = prev;
-		prev = temp;
-		temp = next->node;
-	}
-
 	return (1);
 }
