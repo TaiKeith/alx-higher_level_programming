@@ -1,6 +1,5 @@
 #include <Python.h>
-#include <object.h>
-#include <listobject.h>
+#include <stdio.h>
 
 /**
  * print_python_list_info - A function that prints some basic info about
@@ -22,6 +21,6 @@ void print_python_list_info(PyObject *p)
 
 	for (i = 0; i < size; i++)
 	{
-		printf("Element %li: %s\n", i, Py_TYPE(obj_item[i]->tp_name);
+		printf("Element %li: %s\n", i, Py_TYPE(obj_item[i]->tp_name));
 	}
 }
