@@ -61,6 +61,11 @@ class Square:
         return self.__size ** 2
 
     def pos_print(self):
+        """
+        Generates a string representation of the square in the specified
+        position using spaces and # character
+        """
+
         pos = ""
         if self.size == 0:
             return "\n"
@@ -71,6 +76,8 @@ class Square:
         return pos
 
     def __str__(self):
+        """Returns a string"""
+
         return self.pos_print()
 
     def my_print(self):
