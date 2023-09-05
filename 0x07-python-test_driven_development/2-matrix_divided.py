@@ -15,7 +15,7 @@ def matrix_divided(matrix, div):
         raise TypeError(matrix_msg)
 
     row_size = len(matrix[0])
-    if not all(len(row == row_size for row in matrix)):
+    if not all(len(row) == row_size for row in matrix):
         raise ValueError(matrix_size)
 
     for row in matrix:
