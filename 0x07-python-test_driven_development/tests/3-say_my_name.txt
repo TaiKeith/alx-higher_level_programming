@@ -1,0 +1,29 @@
+"""
+Doctest for 'say_my_name'
+
+Importing function from the module:
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Passing both names correctly
+>>> say_my_name("Keith", "Steve")
+My name is Keith Steve
+
+Check for none string passed as first_name
+>>> say_my_name(None, "Steve")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+Check for non string passed as last_name
+>>> say_my_name("Keith", None)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+check for missing two arguments
+>>> say_my_name()
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+"""
