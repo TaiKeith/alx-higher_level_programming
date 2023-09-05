@@ -4,10 +4,6 @@
 import sys
 
 def is_safe(board, row, col):
-    """
-    Checks if it's safe to place a queen on the board at a specific
-    position(row, column)
-    """
     for i in range(row):
         if board[i][col]:
             return False
@@ -25,7 +21,6 @@ def is_safe(board, row, col):
     return True
 
 def print_board(board):
-    """Prints the coordinates of the queens on the board"""
     coordinates = []
     for r in range(len(board)):
         for c in range(len(board)):
@@ -34,11 +29,9 @@ def print_board(board):
     print(coordinates)
 
 def solve_nqueens(N):
-    """Solves for the nqueens using the value of N given in the input"""
     board = [[False]*N for _ in range(N)]
 
     def backtrack(row):
-    """Recursive backtracking algorithm"""
         if row == N:
             print_board(board)
             return
@@ -53,10 +46,6 @@ def solve_nqueens(N):
 
 
 if __name__ == "__main__":
-    """
-    Check if script is run as main program and
-    parse command line arguments
-    """
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
