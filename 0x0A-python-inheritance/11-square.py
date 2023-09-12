@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-"""
-Create a squate class that inherits 
-from the Rectangle class
+""" Create a square class that inherits
+    from the Rectangle class
 """
 
 Rectangle = __import__('9-rectangle').Rectangle
