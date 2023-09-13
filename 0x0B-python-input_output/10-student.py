@@ -13,7 +13,7 @@ class Student:
     def to_json(self, attrs=None):
         """Gets a dictionary representation of the Student"""
         if isinstance(attrs, list):
-            my_list = list(filter(lambda x:x in attrs, self.__dict__))
+            my_list = list(filter(lambda x: x in attrs, self.__dict__))
             my_dict = {}
             for key in my_list:
                 my_dict[key] = self.__dict__.get(key)
