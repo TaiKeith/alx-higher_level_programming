@@ -139,3 +139,10 @@ class Rectangle(Base):
         for i in range(self.__height):
             rectangle += print_symbol * self.__width + "\n"
         print(rectangle, end="")
+
+    def __str__(self):
+        """Returns a string format of the Rectangle instance"""
+        return (
+                f"[{self.__class__.__name__}] ({self.id}) {self.x}/{self.y} - "
+                f"{self.width}/{self.height}"
+                )
