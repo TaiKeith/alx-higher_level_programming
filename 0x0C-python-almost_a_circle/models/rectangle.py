@@ -180,7 +180,7 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """
-        Public method that returns the dictionary representation of 
+        Public method that returns the dictionary representation of
         a Rectangle
         """
         attributes = ["id", "width", "height", "x", "y"]
