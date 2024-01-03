@@ -2,7 +2,7 @@
 const request = require('request');
 
 if (process.argv.length !== 3) {
-  console.error("Usage: ./script.js <URL>");
+  console.error('Usage: ./script.js <URL>');
   process.exit(1);
 }
 
