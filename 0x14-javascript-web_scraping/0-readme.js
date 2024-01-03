@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const fs = require('fs')
+const fs = require('fs');
 
 if (process.argv.length !== 3) {
   console.error('Usage: ./script.js <file>');
